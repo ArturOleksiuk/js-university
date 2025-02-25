@@ -7,8 +7,8 @@ function triangle(value1, type1, value2, type2) {
         "angle",
     ];
 
-    const MIN_VALUE = 1e-3;
-    const MAX_VALUE = 1e3;
+    const MIN_VALUE = 1e-4;
+    const MAX_VALUE = 1e4;
     if (!types.includes(type1) || !types.includes(type2)) {
         console.log("Некоректний тип аргументу!");
         return "failed";
