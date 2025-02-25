@@ -60,7 +60,7 @@ function triangle(value1, type1, value2, type2) {
             console.log("Кут має бути гострим.");
             return "failed";
         }
-        b = a * Math.tan(toradians(alpha));
+        b = a * Math.tan(toRadians(alpha));
         c = a / Math.cos(toRadians(alpha));
         alpha = 90 - beta;
     } else if (
