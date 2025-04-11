@@ -10,10 +10,10 @@
     console.log("\nAdditional selection based on name length:");
     const LENGTH_TRESHOLD = 5;
     for(let name of names){
-        if (names[i].length > LENGTH_THRESHOLD) {
-            console.log(`Long name detected: Hello ${names[i]}`);
+        if (name.length > LENGTH_THRESHOLD) {
+            console.log(`Long name detected: Hello ${name}`);
         } else {
-            console.log(`Short name detected: Goodbye ${names[i]}`);
+            console.log(`Short name detected: Goodbye ${name}`);
         }
     }
 })();
