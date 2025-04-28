@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Hunt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Pixel Hunt 🎯</h1>
+        
+        <div class="controls-panel">
+            <div class="control-group">
+                <label for="difficulty">Складність: </label>
+                <select id="difficulty"></select>
+            </div>
+            
+            <div class="control-group">
+                <label for="colorPicker">Колір кубика: </label>
+                <input type="color" id="colorPicker" value="#e74c3c">
+            </div>
+            
+            <button id="startButton">Почати гру</button>
+        </div>
+        
+        <div class="stats-panel">
+            <div class="stat" id="scoreDisplay"><span class="icon">🎯</span> Рахунок: 0</div>
+            <div class="stat" id="timerDisplay"><span class="icon">⏱️</span> Час: 0.0с</div>
+        </div>
+        
+        <div id="gameArea">
+            <div id="cube" style="display: none;"></div>
+            <div class="game-over" id="gameOverScreen">
+                <h2>Гра закінчена!</h2>
+                <p id="finalScore">Твій рахунок: 0</p>
+                <button id="restartButton">Грати знову</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const difficulties = [
+            { value: 'easy', label: 'Легко', timeLimit: 3000, cubeSize: 40 },
+            { value: 'medium', label: 'Середньо', timeLimit: 2000, cubeSize: 30 },
+            { value: 'hard', label: 'Важко', timeLimit: 1000, cubeSize: 20 }
+        ];
+        
+        // Game variables
+        let timeoutId;
+        let timerInterval;
+        let score = 0;
+        let currentTimeLimit = 3000;
+        let currentCubeSize = 40;
+        let timerValue = 0;
+        let isGameRunning = false;
+        
+        // DOM elements
+        const gameArea = document.getElementById('gameArea');
+        const cube = document.getElementById('cube');
+        const difficultySelect = document.getElementById('difficulty');
+        const timerDisplay = document.getElementById('timerDisplay');
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        const gameOverScreen = document.getElementById('gameOverScreen');
+        const finalScore = document.getElementById('finalScore');
+        const colorPicker = document.getElementById('colorPicker');
+        
+        // Initialize difficulty selector
+        difficulties.forEach(difficulty => {
+            const option = document.createElement('option');
+            option.value = difficulty.value;
+            option.textContent = difficulty.label;
+            difficultySelect.appendChild(option);
+        });
+        
+        // Event listeners
+        document.getElementById('startButton').addEventListener('click', startGame);
+        document.getElementById('restartButton').addEventListener('click', startGame);
+        
+        cube.addEventListener('click', () => {
+            if (!isGameRunning) return;
+            
+            clearTimeout(timeoutId);
+            score++;
+            updateScore();
+            spawnCube();
+            
+            // Animation effect on click
+            cube.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+                cube.style.transform = 'scale(1)';
+            }, 100);
+        });
+        
+        // Listen for window resize to ensure cube stays within bounds
+        window.addEventListener('resize', () => {
+            if (isGameRunning) {
+                positionCubeRandomly();
+            }
+        });
+        
+        // Game functions
+        function startGame() {
+            // Reset game state
+            score = 0;
+            timerValue = 0;
+            updateScore();
+            updateTimer();
+            
+            // Get selected difficulty
+            const selectedDifficulty = difficultySelect.value;
+            const foundDifficulty = difficulties.find(x => x.value === selectedDifficulty);
+            
+            currentTimeLimit = foundDifficulty ? foundDifficulty.timeLimit : 3000;
+            currentCubeSize = foundDifficulty ? foundDifficulty.cubeSize : 40;
+            
+            // Update cube size
+            cube.style.width = `${currentCubeSize}px`;
+            cube.style.height = `${currentCubeSize}px`;
+            
+            // Start the game
+            isGameRunning = true;
+            cube.style.display = 'block';
+            gameOverScreen.classList.remove('visible');
+            
+            // Change game area background slightly based on difficulty
+            if (selectedDifficulty === 'easy') {
+                gameArea.style.backgroundColor = '#e8f4f8';
+            } else if (selectedDifficulty === 'medium') {
+                gameArea.style.backgroundColor = '#e8f0e8';
+            } else {
+                gameArea.style.backgroundColor = '#f8e8e8';
+            }
+            
+            // Start the countdown timer
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timerValue += 0.1;
+                updateTimer();
+            }, 100);
+            
+            // Spawn the first cube
+            spawnCube();
+        }
+        
+        function spawnCube() {
+            clearTimeout(timeoutId);
+            
+            // Position cube randomly
+            positionCubeRandomly();
+            
+            // Set cube color
+            cube.style.backgroundColor = colorPicker.value;
+            
+            // Set timeout for this round based on difficulty
+            timeoutId = setTimeout(() => {
+                gameOver();
+            }, currentTimeLimit);
+        }
+        
+        function positionCubeRandomly() {
+            const areaWidth = gameArea.clientWidth;
+            const areaHeight = gameArea.clientHeight;
+            
+            // Calculate random position ensuring cube is fully visible
+            const randomX = Math.floor(Math.random() * (areaWidth - currentCubeSize));
+            const randomY = Math.floor(Math.random() * (areaHeight - currentCubeSize));
+            
+            cube.style.left = randomX + 'px';
+            cube.style.top = randomY + 'px';
+        }
+        
+        function updateScore() {
+            scoreDisplay.innerHTML = `<span class="icon">🎯</span> Рахунок: ${score}`;
+        }
+        
+        function updateTimer() {
+            timerDisplay.innerHTML = `<span class="icon">⏱️</span> Час: ${timerValue.toFixed(1)}с`;
+        }
+        
+        function gameOver() {
+            isGameRunning = false;
+            clearInterval(timerInterval);
+            clearTimeout(timeoutId);
+            
+            cube.style.display = 'none';
+            finalScore.textContent = `Твій рахунок: ${score}`;
+            gameOverScreen.classList.add('visible');
+        }
+    </script>
+</body>
+</html>
