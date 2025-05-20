@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Смартфон Galaxy",
+    "shortname": "galaxy-phone",
+    "description": "Сучасний Android-смартфон з потужною камерою.",
+    "price": 8999,
+    "image": ""
+  },
+  {
+    "id": 2,
+    "name": "Ноутбук Ultrabook",
+    "shortname": "ultrabook-laptop",
+    "description": "Тонкий ноутбук для щоденної роботи.",
+    "price": 14999,
+    "image": ""
+  },
+  {
+    "id": 3,
+    "name": "Навушники Bluetooth",
+    "shortname": "bt-headphones",
+    "description": "Lorem ipsum dolor sit amet.",
+    "price": 1299,
+    "image": ""
+  },
+  {
+    "id": 4,
+    "name": "Фітнес-браслет",
+    "shortname": "fitness-band",
+    "description": "Lorem ipsum dolor sit amet.",
+    "price": 999,
+    "image": ""
+  }
+]

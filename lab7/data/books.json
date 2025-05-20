@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "1984",
+    "shortname": "1984-orwell",
+    "description": "Антиутопічний роман Джорджа Орвелла.",
+    "price": 250,
+    "image": "images/books/1984-orwell.webp"
+  },
+  {
+    "id": 2,
+    "name": "Маленький принц",
+    "shortname": "little-prince",
+    "description": "Класика світової літератури.",
+    "price": 180,
+    "image": "images/books/little-prince.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Фінансова грамотність",
+    "shortname": "finance-book",
+    "description": "Поради для управління особистими фінансами.",
+    "price": 320,
+    "image": "images/books/finance-book.png"
+  },
+  {
+    "id": 4,
+    "name": "Історія України",
+    "shortname": "ukraine-history",
+    "description": "Популярна історична книга про події минулого.",
+    "price": 290,
+    "image": "images/books/ukraine-history.jpg"
+  }
+]

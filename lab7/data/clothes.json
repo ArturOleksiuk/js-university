@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Футболка чоловіча",
+    "shortname": "mens-tshirt",
+    "description": "Зручна базова футболка з бавовни.",
+    "price": 399,
+    "image": ""
+  },
+  {
+    "id": 2,
+    "name": "Сукня літня",
+    "shortname": "summer-dress",
+    "description": "Легка сукня для спекотних днів.",
+    "price": 799,
+    "image": ""
+  },
+  {
+    "id": 3,
+    "name": "Джинси класичні",
+    "shortname": "classic-jeans",
+    "description": "Темно-сині джинси з деніму середньої щільності.",
+    "price": 999,
+    "image": ""
+  },
+  {
+    "id": 4,
+    "name": "Кросівки спортивні",
+    "shortname": "sport-sneakers",
+    "description": "Зручні кросівки для щоденного використання.",
+    "price": 1299,
+    "image": ""
+  }
+]
