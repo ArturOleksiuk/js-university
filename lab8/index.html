@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адаптивна сторінка</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="nav-menu">
+            <a href="#" class="nav-item">
+                <div class="nav-icon">🏠</div>
+                <div>Головна</div>
+            </a>
+            <a href="#" class="nav-item">
+                <div class="nav-icon">📖</div>
+                <div>Про нас</div>
+            </a>
+            <a href="#" class="nav-item">
+                <div class="nav-icon">📞</div>
+                <div>Контакти</div>
+            </a>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#">🏠 Головна</a>
+            <a href="#">📖 Про нас</a>
+            <a href="#">📞 Контакти</a>
+        </div>
+    </nav>
+
+    <div class="carousel">
+        <div class="slides" id="slides">
+            <div class="slide">
+                <img src="https://place-hold.it/800x300/6c5ce7/ffffff?text=Слайд+5" alt="Слайд 5">
+            </div>
+            <div class="slide">
+                <img src="https://place-hold.it/800x300/ff6b6b/ffffff?text=Слайд+1" alt="Слайд 1">
+            </div>
+            <div class="slide">
+                <img src="https://place-hold.it/800x300/4ecdc4/ffffff?text=Слайд+2" alt="Слайд 2">
+            </div>
+            <div class="slide">
+                <img src="https://place-hold.it/800x300/45b7d1/ffffff?text=Слайд+3" alt="Слайд 3">
+            </div>
+            <div class="slide">
+                <img src="https://place-hold.it/800x300/f9ca24/ffffff?text=Слайд+4" alt="Слайд 4">
+            </div>
+            <div class="slide">
+                <img src="https://place-hold.it/800x300/6c5ce7/ffffff?text=Слайд+5" alt="Слайд 5">
+            </div>
+            <div class="slide">
+                <img src="https://place-hold.it/800x300/ff6b6b/ffffff?text=Слайд+1" alt="Слайд 1">
+            </div>
+        </div>
+        
+        <button class="prev" id="prevBtn">❮</button>
+        <button class="next" id="nextBtn">❯</button>
+        
+        <div class="indicators" id="indicators">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+            <span class="dot" data-slide="3"></span>
+            <span class="dot" data-slide="4"></span>
+        </div>
+    </div>
+
+    <div class="images large-images">
+        <img src="https://place-hold.it/300x200/ff9ff3/ffffff?text=Large+1" alt="Велике зображення 1">
+        <img src="https://place-hold.it/300x200/54a0ff/ffffff?text=Large+2" alt="Велике зображення 2">
+        <img src="https://place-hold.it/300x200/5f27cd/ffffff?text=Large+3" alt="Велике зображення 3">
+    </div>
+
+    <div class="images medium-images">
+        <img src="https://place-hold.it/300x200/00d2d3/ffffff?text=Mobile+1" alt="Мобільне зображення 1">
+        <img src="https://place-hold.it/300x200/ff9f43/ffffff?text=Mobile+2" alt="Мобільне зображення 2">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
