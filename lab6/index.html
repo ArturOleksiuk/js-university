@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lights Out</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <h1>Lights Out</h1>
+
+      <div class="game-info">
+        <div class="level-selector">
+          <span>Рівень:</span>
+          <button class="level-btn" id="level-0">A</button>
+          <button class="level-btn" id="level-1">B</button>
+          <button class="level-btn" id="level-2">С</button>
+        </div>
+      </div>
+      <div class="stats">
+        <div>
+          <span class="stat">
+            Кроки:
+            <span id="moves">0</span>
+          </span>
+        </div>
+        <div>
+          <span class="stat">
+            Час:
+            <span id="timer">00:00</span>
+          </span>
+        </div>
+        <div>
+          <span class="stat">
+            Мін. кроків:
+            <span id="min-moves">0</span>
+          </span>
+        </div>
+      </div>
+      <div class="grid"></div>
+      <div class="controls">
+        <button class="btn reset">Скинути</button>
+        <button class="btn new-game">Нова гра</button>
+      </div>
+    </div>
+    <div class="victory-message" id="victory-message">
+      <h2>🎉 Вітаємо!</h2>
+      <p id="victory-text">Ви перемогли!</p>
+      <button class="close-btn" id="close-victory-btn">Продовжити</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
